@@ -20,7 +20,7 @@ function App() {
       const botMessage = { sender: 'bot', text: response };
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
-      console.error("Send error:", error);
+      console.error("Error sending message:", error);
     }
 
     setIsTyping(false);
@@ -29,18 +29,20 @@ function App() {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isTyping]);
+  }, [messages]);
 
   return (
-    <div className="chat-wrapper">
-      <div className="chat-body">
+    <div className="chat-container">
+      <div className="chat-header">🤖 Izee Chatbot</div>
+
+      <div className="chat-messages">
         {messages.map((msg, idx) => (
-          <div key={idx} className={`chat-message ${msg.sender}`}>
+          <div key={idx} className={`message ${msg.sender}`}>
             <div className="bubble">{msg.text}</div>
           </div>
         ))}
         {isTyping && (
-          <div className="chat-message bot">
+          <div className="message bot">
             <div className="bubble typing">Izee is typing...</div>
           </div>
         )}
