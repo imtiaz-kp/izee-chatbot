@@ -16,7 +16,7 @@
 //     return data.response; // Ensure this matches the response structure from the backend
 //   }
   export async function sendMessageToBot(message) {
-  const response = await fetch("https://c7ae-2409-40f3-100c-e622-5cc9-8b27-15a0-aab3.ngrok-free.app", {
+  const response = await fetch("https://c7ae-2409-40f3-100c-e622-5cc9-8b27-15a0-aab3.ngrok-free.app/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
